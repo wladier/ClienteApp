@@ -1,0 +1,21 @@
+<section>
+  <div class="signup_box rubberBand">
+    <img class="signup_image" src="assets/images/logo.png">
+    <form class="signup_form" [formGroup]="newUserForm" (ngSubmit)="lanzame(newUserForm)">
+      <!-- NICK -->
+      <label class="signup_form_label">Introduce tu nombre:</label>
+      <div class="signup_form_error"
+           *ngIf="newUserForm.get('nombre').hasError('required') && !newUserForm.get('nombre').pristine">
+        El nombre es obligatorio
+      </div>
+      <input type="text" class="signup_form_input-text" formControlName="nombre">
+      <!-- NICK -->
+      <button type="submit" class="signup_button" [disabled]="newUserForm.invalid">Lanzame</button>
+    </form>
+    <br/>
+    <br/>
+    <div align="center" class="signup_form_input-text">
+      Respuesta del servicio: {{respuesta}}
+    </div>
+  </div>
+</section>
